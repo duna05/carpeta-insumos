@@ -9,7 +9,7 @@ class CertificadoResidentesHandlerHtml {
 
 		try {
 			let template = await this.readTemplate(templateUrl);
-			let attrs = [];
+			let attrs = { "numeroVersiones": 10}; 
 			let schema = this.createSchema();
 			let contentBase64 = Buffer.from(template).toString('base64');
 			let request = {
