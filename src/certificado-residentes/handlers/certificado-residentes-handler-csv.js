@@ -11,7 +11,7 @@ class CertificadoResidentesHandlerCsv {
 		return new Promise((resolve, reject) => {
 			resolve([
 				{
-					baid: "dd8bde05-d98b-a30c-e053-2e00660a8003",
+
 					estado: "Pdte de revisión",
 					patente: "ERX012",
 					nombre: "Axel Lionel",
@@ -44,10 +44,10 @@ class CertificadoResidentesHandlerCsv {
 		});
 	}
 
-	async generate(documentTypeId, url) {
+	async generate(baid,documentTypeId, url) {
 		try {
 			let datasource = await this.datasource();
-			let datasourceMap = await this.datasourceMap(datasource, documentTypeId);
+			let datasourceMap = await this.datasourceMap(datasource, baid, documentTypeId);
 			if (datasourceMap.length == 0) {
 				console.log("DatasourceEmptyException");
 				return;
@@ -59,7 +59,7 @@ class CertificadoResidentesHandlerCsv {
 		}
 	}
 
-	async datasourceMap(datasource, documentTypeId) {
+	async datasourceMap(datasource,baid,documentTypeId) {
 		let fields = ['baID', 'documentTypeId', 'contenido'];
 		let opts = { fields };
 		let parser = new Parser(opts);
@@ -67,7 +67,7 @@ class CertificadoResidentesHandlerCsv {
 			.map(itemDatasource => {
 				let content = this.makeContent(itemDatasource);
 				return {
-					baID: itemDatasource.baid,
+					baID: baid,
 					documentTypeId: documentTypeId,
 					contenido: JSON.stringify(content)
 				}
@@ -80,7 +80,6 @@ class CertificadoResidentesHandlerCsv {
 
 	makeContent(itemDatasource) {
 		let content = {
-			baid: itemDatasource.baid,
 			estado: itemDatasource.estado,
 			patente: itemDatasource.patente,
 			nombre: itemDatasource.nombre,

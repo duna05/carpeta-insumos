@@ -42,7 +42,6 @@ class CertificadoResidentesHandlerHtml {
 		let schemaTemplate = {
 			type: "object",
 			properties: {
-				baid: { "$ref": "#/definitions/baidDef" },
 				estado:{ "$ref": "#/definitions/estadoDef" },
 				patente: { "$ref": "#/definitions/patenteDef" },
 				nombre:{ "$ref": "#/definitions/nombreDef" },
@@ -54,9 +53,6 @@ class CertificadoResidentesHandlerHtml {
 				lista:{ "$ref": "#/definitions/listaDef" },
 			},
 			definitions: {
-				baidDef: {
-					type: "string"
-				},
 				estadoDef: {
 					type: "string"
 				},
@@ -125,7 +121,6 @@ class CertificadoResidentesHandlerHtml {
 
 	ingestCommandMetaData(baid) {
 		return {
-			baid: baid,
 			estado: "Pdte de revisión",
 			patente: "LZT927",
 			nombre: "Uriel",

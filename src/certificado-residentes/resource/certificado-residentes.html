@@ -150,17 +150,24 @@
 				left: 0;
 			}
 
-			.bac,
-			.bac2 {
-				width: 100px;
-				height: 56px;
-				object-fit: contain;
-				margin: 20px 24px;
+			.bac {
+				width: 150px;
+				height: 30px;
+				margin-top:15px;
+                margin-bottom:15px;
+				margin-left: 140px;
+
 			}
 
-			.bac {
-				width: 200px;
+			.bac2 {
+				width: 80px;
+				height: 30px;
+				margin-top:15px;
+                margin-bottom:15px;
+                margin-left:30px;
 			}
+
+			
 		</style>
 
 		<title>Certificado de Residentes</title>
@@ -218,7 +225,7 @@
 						<label for="desc">Lista de cuadras habilitadas para estacionar</label>
 						<ul class="textarea_class">
 							{#for puesto in lista}
-								<span><b>*</b>{puesto}</span>
+								<span>{puesto}</span>
 							{/for}
 						</ul>
 					</div>

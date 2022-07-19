@@ -3,7 +3,7 @@ const CertificadoResidentesHandlerHtml = require('./handlers/certificado-residen
 let certificadoResidentesHandlerHtml = new CertificadoResidentesHandlerHtml();
 certificadoResidentesHandlerHtml.documentTypeCreateCommand(
     "Certificado Residentes", 
-    2,
+    10,
     "resource/certificado-residentes.html",
     "resource/certificado-residentes-document-type-create-command.json",
 );
@@ -16,4 +16,4 @@ certificadoResidentesHandlerHtml.rendererCommandTest(
 //CSV Generator
 const CertificadoResidentesHandlerCsv = require("./handlers/certificado-residentes-handler-csv");
 let certificadoResidentesHandlerCsv = new CertificadoResidentesHandlerCsv();
-certificadoResidentesHandlerCsv.generate(1, "resource/certificado-residentes.csv");
+certificadoResidentesHandlerCsv.generate("dd8bde05-d98b-a30c-e053-2e00660a8003", 1, "resource/certificado-residentes.csv");
